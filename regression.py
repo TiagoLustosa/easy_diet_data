@@ -1,48 +1,77 @@
 import numpy as np
+import pandas as pd
 from sklearn.linear_model import LinearRegression
 
-# Define the training data
-# Each row represents a meal containing chicken and lentils in grams
-X_train = np.array([[600, 0], [400, 278], [300, 400], [450, 250], [500, 100]])
-y_train = np.array([150, 140, 130, 120, 110])
-
+# X = np.array([[totalproteina, totalcaloria, ptnPrimeiroAlimento, caloriaPrimeiroAlimento, ptnSegundoALimneto, caloriaSegundoAlimneto, ptnTerceiroAlimento, caloriaTerceiroAlimento][[totalproteina, totalcaloria, ptnPrimeiroAlimento,
+#              caloriaPrimeiroAlimento, ptnSegundoALimneto, caloriaSegundoAlimneto, ptnTerceiroAlimento, caloriaTerceiroAlimento]]])  # datasetinteiro tem que ser esse array aqui foods, totalptn calorias vai ser um array gigante
+# y = np.array([140])  # output quantidade gramas por alimento por refeicao
 # Define the linear regression model
-model = LinearRegression()
 
-# Train the model
-model.fit(X_train, y_train)
+df = pd.read_csv('C:/projects/easy_diet_data/data_files/user_data_result.csv')
+# 'totalProteinIdealValue'
+# 'totalCaloriesIdealValue'
+# 'firstMealProteinFoodTotalGrams'
+# 'firstMealProteinFoodTotalKcal'
+# 'firstMealLipidFoodTotalGrams'
+# 'firstMealLipidFoodTotalKcal'
+# 'firstMealCarboFoodTotalGrams'
+# 'firstMealCarboFoodTotalKcal'
+# 'secondMealProteinFoodTotalGrams'
+# 'secondMealProteinFoodTotalKcal'
+# 'secondMealLipidFoodTotalGrams'
+# 'secondMealLipidFoodTotalKcal'
+# 'secondMealCarboFoodTotalGrams'
+# 'secondMealCarboFoodTotalKcal'
+# 'thirdMealProteinFoodTotalGrams'
+# 'thirdMealProteinFoodTotalKcal'
+# 'thirdMealLipidFoodTotalGrams'
+# 'thirdMealLipidFoodTotalKcal'
+# 'thirdMealCarboFoodTotalGrams'
+# 'thirdMealCarboFoodTotalKcal'
+# 'fourthMealProteinFoodTotalGrams'
+# 'fourthMealProteinFoodTotalKcal'
+# 'fourthMealLipidFoodTotalGrams'
+# 'fourthMealLipidFoodTotalKcal'
+# 'fourthMealCarboFoodTotalGrams'
+# 'fourthMealCarboFoodTotalKcal'
+# 'totalProteinCalculated'
+# 'totalCaloriesCalculated'
+X = df[['totalProteinIdealValue',
+        'totalCaloriesIdealValue',
+        'firstMealProteinFoodTotalGrams',
+        'firstMealProteinFoodTotalKcal',
+        'firstMealLipidFoodTotalGrams',
+        'firstMealLipidFoodTotalKcal',
+        'firstMealCarboFoodTotalGrams',
+        'firstMealCarboFoodTotalKcal',
+        'secondMealProteinFoodTotalGrams',
+        'secondMealProteinFoodTotalKcal',
+        'secondMealLipidFoodTotalGrams',
+        'secondMealLipidFoodTotalKcal',
+        'secondMealCarboFoodTotalGrams',
+        'secondMealCarboFoodTotalKcal',
+        'thirdMealProteinFoodTotalGrams',
+        'thirdMealProteinFoodTotalKcal',
+        'thirdMealLipidFoodTotalGrams',
+        'thirdMealLipidFoodTotalKcal',
+        'thirdMealCarboFoodTotalGrams',
+        'thirdMealCarboFoodTotalKcal',
+        'fourthMealProteinFoodTotalGrams',
+        'fourthMealProteinFoodTotalKcal',
+        'fourthMealLipidFoodTotalGrams',
+        'fourthMealLipidFoodTotalKcal',
+        'fourthMealCarboFoodTotalGrams',
+        'fourthMealCarboFoodTotalKcal',
+        ]]
 
-# Define the target protein value
-target_protein = 150
-target_calories = 2000
+y = df[[
+    'firstMealProteinFoodTotalGrams',
+]]
 
-# Calculate the quantities of chicken and lentils needed to achieve the target protein value
-predict = model.predict(
-    [[target_protein, target_calories]])
+model = LinearRegression().fit(X, y)
+X_row = X.iloc[0].values.reshape(1, -1)
 
+# Calculate the quantities X[0] pega a entrada do primeiro grupo do X
+predict = model.predict(X_row)
 
-print("Chicken quantity: ", predict[0])
-
-print("Lentils quantity: ", predict[1])
-
-# import numpy as np
-# from sklearn.linear_model import LinearRegression
-
-# Define the data
-# X = np.array([[31, 9]])  # chicken and lentils
-# y = np.array([150])  # target protein
-
-# Train the model
-# model = LinearRegression().fit(X, y)
-
-# Get the coefficients and intercept
-# coefs = model.coef_.item()
-# intercept = model.intercept_.item()
-
-# Calculate the quantities
-# chicken = (150 - intercept) / coefs[0]
-# lentils = (150 - intercept) / coefs[1]
-
-# Print the results
-# print("Chicken quantity: ", chicken)
-# print("Lentils quantity: ", lentils)
+firstMealProteinSourceGrams = predict[0]

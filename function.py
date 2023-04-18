@@ -1,184 +1,4 @@
-# firstMealFoodList = [{
-#     "baseQuantity": 100,
-#     "base_unit": "g",
-#     "carbohydrate": 0.614916666666674,
-#     "category_id": 1,
-#     "description": "Ovo inteiro, cozido",
-#     "energyInKcal": 145.70017,
-#     "fiber": 0,
-#     "highProtein": True,
-#     "isInMainMeal": False,
-#     "id": 488,
-#     "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/ovoCozido.jpg?alt=media&token=8df4d59e-0b3f-450e-a9ea-cf20ee211ce1",
-#     "lipid": 9.47633333333333,
-#     "protein": 13.29375
-# },
-#     {
-#     "baseQuantity": 100,
-#     "base_unit": "g",
-#     "carbohydrate": 58.6464347826087,
-#     "category_id": 1,
-#     "description": "Pão francês",
-#     "energyInKcal": 299.810150434783,
-#     "fiber": 2.30666666666667,
-#     "highCarb": True,
-#     "isInMainMeal": False,
-#     "id": 53,
-#     "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/PaoFrances.jpg?alt=media&token=a866137b-68bf-42b3-9edf-1062107daf6a",
-#     "lipid": 3.10333333333333,
-#     "protein": 7.9535652173913
-# },
-#     {
-#     "baseQuantity": 100,
-#     "base_unit": "g",
-#     "carbohydrate": 3.04933292706807,
-#     "category_id": 1,
-#     "description": "Queijo mussarela",
-#     "energyInKcal": 329.870718420887,
-#     "fiber": "NA",
-#     "highLipid": True,
-#     "isInMainMeal": False,
-#     "id": 463,
-#     "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/Mussarela.jpg?alt=media&token=16132a43-caca-4ee1-9704-b50d85467319",
-#     "lipid": 25.183,
-#     "protein": 22.6490004062653
-# },
-# ]
-# secondMealFoodList = [
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 0,
-#         "category_id": 1,
-#         "description": "Salmão, sem pele, fresco, cru",
-#         "energyInKcal": 169.781579910556,
-#         "fiber": 0,
-#         "highProtein": True,
-#         "isInMainMeal": True,
-#         "id": 316,
-#         "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/salmao.png?alt=media&token=3523f024-a202-4853-bfa7-07e544e7bc9a",
-#         "lipid": 9.709,
-#         "protein": 19.2520833333333
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 28.05985,
-#         "category_id": 1,
-#         "description": "Arroz, tipo 1, cozido",
-#         "energyInKcal": 128.258485666667,
-#         "fiber": 1.561,
-#         "highCarb": True,
-#         "isInMainMeal": True,
-#         "id": 3,
-#         "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/arroz-branco.jpg?alt=media&token=ab13cc9b-9497-43e5-a79f-647015cb8e9d",
-#         "lipid": 0.227,
-#         "protein": 2.52081666666667
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 0,
-#         "category_id": 4,
-#         "description": "Azeite oliva, extra virgem",
-#         "energyInKcal": 884,
-#         "fiber": 0,
-#         "highLipid": True,
-#         "isInMainMeal": True,
-#         "id": 260,
-#         "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/azeite-oliva.jpg?alt=media&token=4a7b3407-9257-4717-836f-c4f81740729e",
-#         "lipid": 100,
-#         "protein": 0
-#     },
-# ]
-# thirdMealFoodList = [
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 66.6356405797102,
-#         "category_id": 1,
-#         "description": "Aveia flocos",
-#         "energyInKcal": 393.822689449275,
-#         "fiber": 9.13,
-#         "highCarb": True,
-#         "isInMainMeal": False,
-#         "id": 7,
-#         "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/aveiaFlocos.jpg?alt=media&token=0840ca8a-297e-43fc-955e-6d465f6a0b1d",
-#         "lipid": 8.49666666666667,
-#         "protein": 13.9210260869565
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 4,
-#         "description": "Whey Protein(Concentrado) 80%",
-#         "energyInKcal": 122,
-#         "fiber": 0,
-#         "highProtein": True,
-#         "isInMainMeal": False,
-#         "id": 777,
-#         "image": "",
-#         "lipid": 1.6,
-#         "protein": 23
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 1.91666666666666,
-#         "category_id": 1,
-#         "description": "Iogurte natural integral",
-#         "energyInKcal": 51.4895333333333,
-#         "fiber": 0,
-#         "highLipid": True,
-#         "isInMainMeal": False,
-#         "id": 448,
-#         "image": "https://firebasestorage.googleapis.com/v0/b/easydiet-48b9e.appspot.com/o/IogurteIntegral.jpg?alt=media&token=e5eba4f6-b1fa-4248-93f4-71f4c4f5e8dc",
-#         "lipid": 3.04,
-#         "protein": 4.06333333333333
-#     },
-# ]
-
-# fourthMealFoodList = [
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 0,
-#         "category_id": 6,
-#         "description": "Frango, sobrecoxa, sem pele, assada",
-#         "energyInKcal": 232.883396666667,
-#         "fiber": 0,
-#         "highProtein": True,
-#         "id": 413,
-#         "lipid": 12.0073333333333,
-#         "protein": 29.175
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 25.80975,
-#         "category_id": 1,
-#         "description": "Arroz, integral, cozido",
-#         "energyInKcal": 123.5348925,
-#         "fiber": 2.74933333333333,
-#         "highCarb": True,
-#         "id": 1,
-#         "lipid": 1.00033333333333,
-#         "protein": 2.58825
-#     },
-#     {
-#         "baseQuantity": 100,
-#         "base_unit": "g",
-#         "carbohydrate": 0,
-#         "category_id": 4,
-#         "description": "Azeite, de oliva, extra virgem",
-#         "energyInKcal": 884,
-#         "fiber": 0,
-#         "highLipid": True,
-#         "id": 260,
-#         "lipid": 100,
-#         "protein": 0
-#     }
-# ]
+import csv
 import json
 
 
@@ -330,8 +150,11 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
     mealResult = {
         'totalKcal': totalKcal,
         'proteinSource': totalProteinGrams,
+        'proteinSourceKcal': totalProteinGrams * proteinKcalPerGram,
         'lipidSource': totalLipidGrams,
+        'lipidSourceKcal': totalLipidGrams * lipidKcalPerGram,
         'carboSource': totalCarboGrams,
+        'carboSourceKcal': totalCarboGrams * carboKcalPerGram,
         'foods': foodList,
         'totalProteinInMeal': proteinResult,
         'totalLipidInMeal': lipidResult,
@@ -339,6 +162,9 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
     }
     mealNumber += 1
     return mealResult
+
+
+userData = []
 
 
 def calculateDietFourMeals(userData):
@@ -373,17 +199,103 @@ def calculateDietFourMeals(userData):
         "fourthMealResult": fourthMealResult,
         "totalMacrosInDiet": totalMacrosInDiet
     }
+
     return fullDiet
 
 
-with open('C:\projects\easy_diet_cloud_functions\user_data.json', 'r', encoding="utf8") as input_file:
+with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression.json', 'r', encoding="utf8") as input_file:
     userDataJson = json.load(input_file)
 
-for i in userDataJson:
+with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w', newline='') as output_file:
+    writer = csv.writer(output_file)
+    writer.writerow(
+        ['totalProteinIdealValue',
+         'totalCaloriesIdealValue',
 
-    bmr = calculateBasalMetabolicRate(i)
-    macros = calculateTotalMacros(i)
-    totalProteinInMeal = macros['totalProtein']
-    totalLipidInMeal = macros['totalLipid']
-    totalCaloriesInMeal = bmr
-    calculateDietFourMeals(i)
+         'firstMealProteinFoodTotalGrams',
+         'firstMealProteinFoodTotalKcal',
+
+         'firstMealLipidFoodTotalGrams',
+         'firstMealLipidFoodTotalKcal',
+
+         'firstMealCarboFoodTotalGrams',
+         'firstMealCarboFoodTotalKcal',
+
+         'secondMealProteinFoodTotalGrams',
+         'secondMealProteinFoodTotalKcal',
+         'secondMealLipidFoodTotalGrams',
+         'secondMealLipidFoodTotalKcal',
+         'secondMealCarboFoodTotalGrams',
+         'secondMealCarboFoodTotalKcal',
+
+         'thirdMealProteinFoodTotalGrams',
+         'thirdMealProteinFoodTotalKcal',
+         'thirdMealLipidFoodTotalGrams',
+         'thirdMealLipidFoodTotalKcal',
+         'thirdMealCarboFoodTotalGrams',
+         'thirdMealCarboFoodTotalKcal',
+
+         'fourthMealProteinFoodTotalGrams',
+         'fourthMealProteinFoodTotalKcal',
+         'fourthMealLipidFoodTotalGrams',
+         'fourthMealLipidFoodTotalKcal',
+         'fourthMealCarboFoodTotalGrams',
+         'fourthMealCarboFoodTotalKcal',
+
+         'totalProteinCalculated',
+         'totalCaloriesCalculated'
+         ])
+    for i in userDataJson:
+
+        bmr = calculateBasalMetabolicRate(i)
+        macros = calculateTotalMacros(i)
+        totalProteinInMeal = macros['totalProtein']
+        totalLipidInMeal = macros['totalLipid']
+        totalCaloriesInMeal = bmr
+        fullDiet = calculateDietFourMeals(i)
+        totalPtnCalculated = fullDiet['totalMacrosInDiet']['totalProteinInDiet']
+        isBigger = totalPtnCalculated > (totalProteinInMeal +
+                                         (totalProteinInMeal * 0.05))
+        isLower = totalPtnCalculated < (totalProteinInMeal -
+                                        (totalProteinInMeal * 0.03))
+        totalProteinIsOk = (isBigger == False and isLower == False)
+        if (totalProteinIsOk):
+            userData.append(fullDiet)
+            with open('user_data__result_with_csv.json', 'w', encoding='utf-8') as output_file:
+                json.dump(userData, output_file, ensure_ascii=False)
+                # resultado para alimentar a IA
+                writer.writerow([
+                    totalProteinInMeal,
+                    bmr,
+                    fullDiet['firstMealResult']['proteinSource'],
+                    fullDiet['firstMealResult']['proteinSourceKcal'],
+                    fullDiet['firstMealResult']['lipidSource'],
+                    fullDiet['firstMealResult']['lipidSourceKcal'],
+                    fullDiet['firstMealResult']['carboSource'],
+                    fullDiet['firstMealResult']['carboSourceKcal'],
+
+                    fullDiet['secondMealResult']['proteinSource'],
+                    fullDiet['secondMealResult']['proteinSourceKcal'],
+                    fullDiet['secondMealResult']['lipidSource'],
+                    fullDiet['secondMealResult']['lipidSourceKcal'],
+                    fullDiet['secondMealResult']['carboSource'],
+                    fullDiet['secondMealResult']['carboSourceKcal'],
+
+                    fullDiet['thirdMealResult']['proteinSource'],
+                    fullDiet['thirdMealResult']['proteinSourceKcal'],
+                    fullDiet['thirdMealResult']['lipidSource'],
+                    fullDiet['thirdMealResult']['lipidSourceKcal'],
+                    fullDiet['thirdMealResult']['carboSource'],
+                    fullDiet['thirdMealResult']['carboSourceKcal'],
+
+                    fullDiet['fourthMealResult']['proteinSource'],
+                    fullDiet['fourthMealResult']['proteinSourceKcal'],
+                    fullDiet['fourthMealResult']['lipidSource'],
+                    fullDiet['fourthMealResult']['lipidSourceKcal'],
+                    fullDiet['fourthMealResult']['carboSource'],
+                    fullDiet['fourthMealResult']['carboSourceKcal'],
+
+                    fullDiet['totalMacrosInDiet']['totalProteinInDiet'],
+                    fullDiet['totalMacrosInDiet']
+                    ['totalCaloriesInDiet'],
+                ])
