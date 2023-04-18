@@ -215,6 +215,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
          'totalProteinCalculated',
          'totalCaloriesCalculated'
          ])
+    dadosCalculados = 0
     for i in userDataJson:
 
         bmr = calculateBasalMetabolicRate(i)
@@ -282,6 +283,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
                     fullDiet['fourthMealResult']['carboSourceKcal'],
 
                     fullDiet['totalMacrosInDiet']['totalProteinInDiet'],
-                    fullDiet['totalMacrosInDiet']
-                    ['totalCaloriesInDiet'],
+                    fullDiet['totalMacrosInDiet']['totalCaloriesInDiet'],
                 ])
+        dadosCalculados += 1
+        print('Dados calculados = ', dadosCalculados)

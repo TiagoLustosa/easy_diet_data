@@ -66,12 +66,75 @@ X = df[['totalProteinIdealValue',
 
 y = df[[
     'firstMealProteinFoodTotalGrams',
+    'firstMealLipidFoodTotalGrams',
+    'firstMealCarboFoodTotalGrams',
+    'secondMealProteinFoodTotalGrams',
+    'secondMealLipidFoodTotalGrams',
+    'secondMealCarboFoodTotalGrams',
+    'thirdMealProteinFoodTotalGrams',
+    'thirdMealLipidFoodTotalGrams',
+    'thirdMealCarboFoodTotalGrams',
+    'fourthMealProteinFoodTotalGrams',
+    'fourthMealLipidFoodTotalGrams',
+    'fourthMealCarboFoodTotalGrams',
 ]]
 
 model = LinearRegression().fit(X, y)
 X_row = X.iloc[0].values.reshape(1, -1)
 
 # Calculate the quantities X[0] pega a entrada do primeiro grupo do X
-predict = model.predict(X_row)
+predict = model.predict(X)
 
-firstMealProteinSourceGrams = predict[0]
+predict = model.predict(X)
+
+for i in range(len(predict)):
+    firstMealProteinFoodTotalGrams = predict[i][0]
+    firstMealLipidFoodTotalGrams = predict[i][1]
+    firstMealCarboFoodTotalGrams = predict[i][2]
+
+    # You can then use these predicted values as desired
+    # For example, print them to the console
+    print("Predicted values for row", i, ":")
+    print("First Meal Protein Food Total Grams:",
+          firstMealProteinFoodTotalGrams)
+    print("First Meal Lipid Food Total Grams:", firstMealLipidFoodTotalGrams)
+    print("First Meal Carbo Food Total Grams:", firstMealCarboFoodTotalGrams)
+
+
+# for i in predict:
+#     firstMealProteinFoodTotalGrams = predict[0]
+#     firstMealLipidFoodTotalGrams = predict[1]
+#     firstMealCarboFoodTotalGrams = predict[i, 2]
+#     secondMealProteinFoodTotalGrams = predict[i, 4]
+#     secondMealLipidFoodTotalGrams = predict[i, 5]
+#     secondMealCarboFoodTotalGrams = predict[i, 6]
+#     thirdMealProteinFoodTotalGrams = predict[i, 7]
+#     thirdMealLipidFoodTotalGrams = predict[i, 8]
+#     thirdMealCarboFoodTotalGrams = predict[i, 9]
+#     fourthMealProteinFoodTotalGrams = predict[i, 10]
+#     fourthMealLipidFoodTotalGrams = predict[i, 11]
+#     fourthMealCarboFoodTotalGrams = predict[i, 12]
+
+#     firstMeal = {
+#         'firstMealProteinFoodTotalGrams': firstMealProteinFoodTotalGrams,
+#         'firstMealLipidFoodTotalGrams': firstMealLipidFoodTotalGrams,
+#         'firstMealCarboFoodTotalGrams': firstMealCarboFoodTotalGrams,
+#     }
+
+#     secondMeal = {
+#         'secondMealProteinFoodTotalGrams': secondMealProteinFoodTotalGrams,
+#         'secondMealLipidFoodTotalGrams': secondMealLipidFoodTotalGrams,
+#         'secondMealCarboFoodTotalGrams': secondMealCarboFoodTotalGrams,
+#     }
+
+#     thirdMeal = {
+#         'thirdMealProteinFoodTotalGrams': thirdMealProteinFoodTotalGrams,
+#         'thirdMealLipidFoodTotalGrams': thirdMealLipidFoodTotalGrams,
+#         'thirdMealCarboFoodTotalGrams': thirdMealCarboFoodTotalGrams,
+#     }
+#     fourthMeal = {
+#         'fourthMealProteinFoodTotalGrams': fourthMealProteinFoodTotalGrams,
+#         'fourthMealLipidFoodTotalGrams': fourthMealLipidFoodTotalGrams,
+#         'fourthMealCarboFoodTotalGrams': fourthMealCarboFoodTotalGrams,
+#     }
+#     print(firstMeal)

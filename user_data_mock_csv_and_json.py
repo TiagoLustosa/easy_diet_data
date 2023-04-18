@@ -24,24 +24,36 @@ def generate_user_data():
     mock_user_data = []
     with open('C:/projects/easy_diet_data/data_files/user_data_mock_CSV.csv', mode='w', newline='') as output_file:
         writer = csv.writer(output_file)
-        writer.writerow(['totalProteinInAllMeals',
-                         'proteinSourceFirstMealFirstFoodCoeficient',
-                         'proteinSourceFirstMealSecondFoodCoeficient',
-                         'proteinSourceFirstMealThirdFoodCoeficient',
+        writer.writerow(['totalProteinIdealInAllMeals',
+                         'proteinSourceFirstMealFirstFoodProteinCoeficient',
+                         'proteinSourceFirstMealSecondFoodProteinCoeficient',
+                         'proteinSourceFirstMealThirdFoodProteinCoeficient',
+                         'proteinSourceFirstMealFirstFoodKcalCoeficient',
+                         'proteinSourceFirstMealSecondFoodKcalCoeficient',
+                         'proteinSourceFirstMealThirdFoodKcalCoeficient',
 
-                         'proteinSourceSecondMealFirstFoodCoeficient',
-                         'proteinSourceSecondMealSecondFoodCoeficient',
-                         'proteinSourceSecondMealThirdFoodCoeficient',
+                         'proteinSourceSecondMealFirstFoodProteinCoeficient',
+                         'proteinSourceSecondMealSecondFoodProteinCoeficient',
+                         'proteinSourceSecondMealThirdFoodProteinCoeficient',
+                         'proteinSourceSecondMealFirstFoodKcalCoeficient',
+                         'proteinSourceSecondMealSecondFoodKcalCoeficient',
+                         'proteinSourceSecondMealThirdFoodKcalCoeficient',
 
-                         'proteinSourceThirdMealFirstFoodCoeficient',
-                         'proteinSourceThirdMealSecondFoodCoeficient',
-                         'proteinSourceThirdMealThirdFoodCoeficient',
+                         'proteinSourceThirdMealFirstFoodProteinCoeficient',
+                         'proteinSourceThirdMealSecondFoodProteinCoeficient',
+                         'proteinSourceThirdMealThirdFoodProteinCoeficient',
+                         'proteinSourceThirdMealFirstFoodKcalCoeficient',
+                         'proteinSourceThirdMealSecondFoodKcalCoeficient',
+                         'proteinSourceThirdMealThirdFoodKcalCoeficient',
 
-                         'proteinSourceFourthMealFirstFoodCoeficient',
-                         'proteinSourceFourthMealSecondFoodCoeficient',
-                         'proteinSourceFourthMealThirdFoodCoeficient',
+                         'proteinSourceFourthMealFirstFoodProteinCoeficient',
+                         'proteinSourceFourthMealSecondFoodProteinCoeficient',
+                         'proteinSourceFourthMealThirdFoodProteinCoeficient',
+                         'proteinSourceFourthMealFirstFoodKcalCoeficient',
+                         'proteinSourceFourthMealSecondFoodKcalCoeficient',
+                         'proteinSourceFourthMealThirdFoodKcalCoeficient',
                          ])
-        for i in range(10):
+        for i in range(1000):
             food_list = load_food_lists()
 
         # generate random user data
@@ -85,40 +97,66 @@ def generate_user_data():
 
             # create user data dictionary
 
-            totalProteinInAllMeals = weight * proteinPerKilogramOfBodyWeight
+            totalProteinIdealInAllMeals = weight * proteinPerKilogramOfBodyWeight
             # get foods from first meal
-            proteinSourceFirstMealFirstFoodCoeficient = first_meal_food_list[0]['protein']
-            proteinSourceFirstMealSecondFoodCoeficient = first_meal_food_list[1]['protein']
-            proteinSourceFirstMealThirdFoodCoeficient = first_meal_food_list[2]['protein']
+            proteinSourceFirstMealFirstFoodProteinCoeficient = first_meal_food_list[0]['protein']
+            proteinSourceFirstMealSecondFoodProteinCoeficient = first_meal_food_list[1]['protein']
+            proteinSourceFirstMealThirdFoodProteinCoeficient = first_meal_food_list[2]['protein']
+
+            proteinSourceFirstMealFirstFoodKcalCoeficient = first_meal_food_list[0]['energyInKcal']
+            proteinSourceFirstMealSecondFoodKcalCoeficient = first_meal_food_list[1]['energyInKcal']
+            proteinSourceFirstMealThirdFoodKcalCoeficient = first_meal_food_list[2]['energyInKcal']
             # get foods from second meal
-            proteinSourceSecondMealFirstFoodCoeficient = second_meal_food_list[0]['protein']
-            proteinSourceSecondMealSecondFoodCoeficient = second_meal_food_list[1]['protein']
-            proteinSourceSecondMealThirdFoodCoeficient = second_meal_food_list[2]['protein']
+            proteinSourceSecondMealFirstFoodProteinCoeficient = second_meal_food_list[0]['protein']
+            proteinSourceSecondMealSecondFoodProteinCoeficient = second_meal_food_list[1]['protein']
+            proteinSourceSecondMealThirdFoodProteinCoeficient = second_meal_food_list[2]['protein']
+
+            proteinSourceSecondMealFirstFoodKcalCoeficient = second_meal_food_list[0]['energyInKcal']
+            proteinSourceSecondMealSecondFoodKcalCoeficient = second_meal_food_list[1]['energyInKcal']
+            proteinSourceSecondMealThirdFoodKcalCoeficient = second_meal_food_list[2]['energyInKcal']
             # get foods from third meal
-            proteinSourceThirdMealFirstFoodCoeficient = third_meal_food_list[0]['protein']
-            proteinSourceThirdMealSecondFoodCoeficient = third_meal_food_list[1]['protein']
-            proteinSourceThirdMealThirdFoodCoeficient = third_meal_food_list[2]['protein']
+            proteinSourceThirdMealFirstFoodProteinCoeficient = third_meal_food_list[0]['protein']
+            proteinSourceThirdMealSecondFoodProteinCoeficient = third_meal_food_list[1]['protein']
+            proteinSourceThirdMealThirdFoodProteinCoeficient = third_meal_food_list[2]['protein']
+            proteinSourceThirdMealFirstFoodKcalCoeficient = third_meal_food_list[0]['energyInKcal']
+            proteinSourceThirdMealSecondFoodKcalCoeficient = third_meal_food_list[1]['energyInKcal']
+            proteinSourceThirdMealThirdFoodKcalCoeficient = third_meal_food_list[2]['energyInKcal']
             # get foods from fourth meal
-            proteinSourceFourthMealFirstFoodCoeficient = fourth_meal_food_list[0]['protein']
-            proteinSourceFourthMealSecondFoodCoeficient = fourth_meal_food_list[1]['protein']
-            proteinSourceFourthMealThirdFoodCoeficient = fourth_meal_food_list[2]['protein']
+            proteinSourceFourthMealFirstFoodProteinCoeficient = fourth_meal_food_list[0]['protein']
+            proteinSourceFourthMealSecondFoodProteinCoeficient = fourth_meal_food_list[1]['protein']
+            proteinSourceFourthMealThirdFoodProteinCoeficient = fourth_meal_food_list[2]['protein']
+            proteinSourceFourthMealFirstFoodKcalCoeficient = fourth_meal_food_list[0]['energyInKcal']
+            proteinSourceFourthMealSecondFoodKcalCoeficient = fourth_meal_food_list[1]['energyInKcal']
+            proteinSourceFourthMealThirdFoodKcalCoeficient = fourth_meal_food_list[2]['energyInKcal']
 
-            writer.writerow([totalProteinInAllMeals,
-                             proteinSourceFirstMealFirstFoodCoeficient,
-                             proteinSourceFirstMealSecondFoodCoeficient,
-                             proteinSourceFirstMealThirdFoodCoeficient,
+            writer.writerow([totalProteinIdealInAllMeals,
+                             proteinSourceFirstMealFirstFoodProteinCoeficient,
+                             proteinSourceFirstMealSecondFoodProteinCoeficient,
+                             proteinSourceFirstMealThirdFoodProteinCoeficient,
+                             proteinSourceFirstMealFirstFoodKcalCoeficient,
+                             proteinSourceFirstMealSecondFoodKcalCoeficient,
+                             proteinSourceFirstMealThirdFoodKcalCoeficient,
 
-                             proteinSourceSecondMealFirstFoodCoeficient,
-                             proteinSourceSecondMealSecondFoodCoeficient,
-                             proteinSourceSecondMealThirdFoodCoeficient,
+                             proteinSourceSecondMealFirstFoodProteinCoeficient,
+                             proteinSourceSecondMealSecondFoodProteinCoeficient,
+                             proteinSourceSecondMealThirdFoodProteinCoeficient,
+                             proteinSourceSecondMealFirstFoodKcalCoeficient,
+                             proteinSourceSecondMealSecondFoodKcalCoeficient,
+                             proteinSourceSecondMealThirdFoodKcalCoeficient,
 
-                             proteinSourceThirdMealFirstFoodCoeficient,
-                             proteinSourceThirdMealSecondFoodCoeficient,
-                             proteinSourceThirdMealThirdFoodCoeficient,
+                             proteinSourceThirdMealFirstFoodProteinCoeficient,
+                             proteinSourceThirdMealSecondFoodProteinCoeficient,
+                             proteinSourceThirdMealThirdFoodProteinCoeficient,
+                             proteinSourceThirdMealFirstFoodKcalCoeficient,
+                             proteinSourceThirdMealSecondFoodKcalCoeficient,
+                             proteinSourceThirdMealThirdFoodKcalCoeficient,
 
-                             proteinSourceFourthMealFirstFoodCoeficient,
-                             proteinSourceFourthMealSecondFoodCoeficient,
-                             proteinSourceFourthMealThirdFoodCoeficient,
+                             proteinSourceFourthMealFirstFoodProteinCoeficient,
+                             proteinSourceFourthMealSecondFoodProteinCoeficient,
+                             proteinSourceFourthMealThirdFoodProteinCoeficient,
+                             proteinSourceFourthMealFirstFoodKcalCoeficient,
+                             proteinSourceFourthMealSecondFoodKcalCoeficient,
+                             proteinSourceFourthMealThirdFoodKcalCoeficient,
                              ])
 
             mock_user_data.append({
@@ -136,6 +174,7 @@ def generate_user_data():
             })
             with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression.json', 'w', encoding='utf-8') as output_file:
                 json.dump(mock_user_data, output_file, ensure_ascii=False)
+            print('Dados criados = ', i)
 
             # print("Current length of output_arr:", len(mock_user_data))
 #             return user_data
