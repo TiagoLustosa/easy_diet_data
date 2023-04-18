@@ -58,8 +58,8 @@ y = dfResult[[
     'fourthMealLipidFoodTotalGrams',
     'fourthMealCarboFoodTotalGrams',
 
-    # 'totalProteinCalculated',
-    # 'totalCaloriesCalculated',
+    'totalProteinCalculated',
+    'totalCaloriesCalculated',
 ]]
 
 model = LinearRegression().fit(X, y)
@@ -98,16 +98,16 @@ for i in range(len(predict)):
     fourthMealProteinFoodTotalGrams = predict[i][9]
     fourthMealLipidFoodTotalGrams = predict[i][10]
     fourthMealCarboFoodTotalGrams = predict[i][11]
-    # totalProteinAllMeals = predict[i][12]
-    # totalCaloriesAllMeals = predict[i][13]
+    totalProteinAllMeals = predict[i][12]
+    totalCaloriesAllMeals = predict[i][13]
 
     idealProtein = df_input[['totalProteinIdealInAllMeals']].to_numpy()
     idealCalories = df_input[['totalCaloriesIdealValue']].to_numpy()
     fullResult = {
         'totalProteinIdealInAllMeals': idealProtein[i],
-        # 'totalProteinAllMeals': totalProteinAllMeals,
+        'totalProteinAllMeals': totalProteinAllMeals,
         'totalCaloriesIdealValue': idealCalories[i],
-        # 'totalCaloriesAllMeals': totalCaloriesAllMeals,
+        'totalCaloriesAllMeals': totalCaloriesAllMeals,
         'firstMealProteinFoodTotalGrams': firstMealProteinFoodTotalGrams,
         'firstMealLipidFoodTotalGrams': firstMealLipidFoodTotalGrams,
         'firstMealCarboFoodTotalGrams': firstMealCarboFoodTotalGrams,
@@ -125,6 +125,4 @@ for i in range(len(predict)):
     new_df_result = pd.DataFrame(fullResult)
     dfFullResult = pd.concat([dfFullResult, new_df_result], ignore_index=True)
     dfFullResult.to_csv('full_result_predict.csv', index=False)
-    print(dfFullResult)
-    # print(totalProteinAllMeals, 'Ideal: ', df_input[['totalProteinIdealInAllMeals']])
-    # print(totalCaloriesAllMeals, 'Ideal: ', df_input[['totalCaloriesIdealValue']])
+    print('Dados preditos = ', i)
