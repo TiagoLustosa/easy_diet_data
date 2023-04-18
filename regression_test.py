@@ -8,9 +8,10 @@ df = pd.read_csv(
 dfResult = pd.read_csv(
     'C:/projects/easy_diet_data/data_files/user_data_result.csv')
 
-df_input = pd.concat([df, dfResult['totalCaloriesIdealValue']], axis=1)
+df_input = pd.concat([df, dfResult[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
 
 X = df_input[['totalProteinIdealInAllMeals',
+              'totalLipidIdealValue',
               'totalCaloriesIdealValue',
               'proteinSourceFirstMealFirstFoodProteinCoeficient',
               'proteinSourceFirstMealSecondFoodProteinCoeficient',
@@ -59,6 +60,7 @@ y = dfResult[[
     'fourthMealCarboFoodTotalGrams',
 
     'totalProteinCalculated',
+    'totalLipidCalculated',
     'totalCaloriesCalculated',
 ]]
 
@@ -68,6 +70,8 @@ predict = model.predict(X)
 concat_with_ideal = df_input[['totalProteinIdealInAllMeals', 'totalCaloriesIdealValue']]
 dfFullResult = pd.DataFrame(columns=['totalProteinIdealInAllMeals',
                                      'totalProteinAllMeals',
+                                     'totalLipidIdealInAllMeals',
+                                     'totalLipidAllMeals',
                                      'totalCaloriesIdealValue',
                                      'totalCaloriesAllMeals',
                                      'firstMealProteinFoodTotalGrams',
@@ -99,13 +103,17 @@ for i in range(len(predict)):
     fourthMealLipidFoodTotalGrams = predict[i][10]
     fourthMealCarboFoodTotalGrams = predict[i][11]
     totalProteinAllMeals = predict[i][12]
-    totalCaloriesAllMeals = predict[i][13]
+    totalLipidAllMeals = predict[i][13]
+    totalCaloriesAllMeals = predict[i][14]
 
     idealProtein = df_input[['totalProteinIdealInAllMeals']].to_numpy()
+    idealLipid = df_input[['totalLipidIdealValue']].to_numpy()
     idealCalories = df_input[['totalCaloriesIdealValue']].to_numpy()
     fullResult = {
         'totalProteinIdealInAllMeals': idealProtein[i],
         'totalProteinAllMeals': totalProteinAllMeals,
+        'totalLipidIdealInAllMeals': idealLipid[i],
+        'totalLipidAllMeals': totalLipidAllMeals,
         'totalCaloriesIdealValue': idealCalories[i],
         'totalCaloriesAllMeals': totalCaloriesAllMeals,
         'firstMealProteinFoodTotalGrams': firstMealProteinFoodTotalGrams,

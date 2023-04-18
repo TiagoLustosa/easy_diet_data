@@ -3,9 +3,9 @@ import random
 import numpy as np
 import csv
 
-ages = list(range(18, 61))  # possible ages from 18 to 60
-weights = list(range(50, 101))  # possible weights from 50 to 100 kg
-heights = [165, 170, 175, 180, 185, 190]  # possible heights in cm
+ages = list(range(18, 75))  # possible ages from 18 to 60
+weights = list(range(45, 140))  # possible weights from 50 to 100 kg
+heights = list(range(150, 210))  # possible heights in cm
 protein_per_kg = [1.6, 1.7, 1.8, 1.9, 2.0,  2.1, 2.2, 2.3]
 activity_levels = ['sedentary', 'lightlyActive', 'moderatelyActive',
                    'veryActive', 'superActive']  # possible activity levels
@@ -22,7 +22,7 @@ def load_food_lists():
 
 def generate_user_data():
     mock_user_data = []
-    with open('C:/projects/easy_diet_data/data_files/user_data_mock_CSV.csv', mode='w', newline='') as output_file:
+    with open('C:/projects/easy_diet_data/data_files/user_data_mock_CSV2.csv', mode='w', newline='') as output_file:
         writer = csv.writer(output_file)
         writer.writerow(['totalProteinIdealInAllMeals',
                          'proteinSourceFirstMealFirstFoodProteinCoeficient',
@@ -172,7 +172,7 @@ def generate_user_data():
                 "thirdMealFoodList": third_meal_food_list,
                 "fourthMealFoodList": fourth_meal_food_list,
             })
-            with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression.json', 'w', encoding='utf-8') as output_file:
+            with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression2.json', 'w', encoding='utf-8') as output_file:
                 json.dump(mock_user_data, output_file, ensure_ascii=False)
             print('Dados criados = ', i)
 

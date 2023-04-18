@@ -180,6 +180,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
     writer = csv.writer(output_file)
     writer.writerow(
         ['totalProteinIdealValue',
+         'totalLipidIdealValue',
          'totalCaloriesIdealValue',
 
          'firstMealProteinFoodTotalGrams',
@@ -213,6 +214,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
          'fourthMealCarboFoodTotalKcal',
 
          'totalProteinCalculated',
+         'totalLipidCalculated',
          'totalCaloriesCalculated'
          ])
     dadosCalculados = 0
@@ -253,6 +255,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
                 # resultado para alimentar a IA
                 writer.writerow([
                     totalProteinInMeal,
+                    totalLipidInMeal,
                     bmr,
                     fullDiet['firstMealResult']['proteinSource'],
                     fullDiet['firstMealResult']['proteinSourceKcal'],
@@ -283,6 +286,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
                     fullDiet['fourthMealResult']['carboSourceKcal'],
 
                     fullDiet['totalMacrosInDiet']['totalProteinInDiet'],
+                    fullDiet['totalMacrosInDiet']['totalLipidInDiet'],
                     fullDiet['totalMacrosInDiet']['totalCaloriesInDiet'],
                 ])
         dadosCalculados += 1
