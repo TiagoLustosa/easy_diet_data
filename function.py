@@ -42,29 +42,6 @@ def calculateBasalMetabolicRate(userData):
                 - (4.676 * userData['age'])) * activityLevelFactor + dietObjective
 
 
-totalProteinInMeal = 160
-totalLipidInMeal = 80
-totalCaloriesInMeal = 2500
-
-totalProteinFirstMeal = totalProteinInMeal * 0.2
-totalLipidFirstMeal = totalLipidInMeal * 0.2
-totalCaloriesFirstMeal = totalCaloriesInMeal * 0.2
-
-totalProteinSecondMeal = totalProteinInMeal * 0.3
-totalLipidSecondMeal = totalLipidInMeal * 0.3
-totalCaloriesInSecondMeal = totalCaloriesInMeal * 0.3
-
-totalProteinThirdMeal = totalProteinInMeal * 0.2
-totalLipidThirdMeal = totalLipidInMeal * 0.2
-totalCaloriesInThirdMeal = totalCaloriesInMeal * 0.2
-
-totalProteinInFourthMeal = 0
-totalLipidInFourthMeal = 0
-totalCaloriesInFourthMeal = 0
-
-meal_number = 1
-
-
 def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
     totalProteinGrams = 0
     proteinResult = 0
@@ -96,31 +73,26 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
     carboLipidPerGram = carbo['lipid'] / 100
     carboProteinPerGram = carbo['protein'] / 100
 
-    mealNumber = 1
-    while totalKcal < totalCaloriesInMeal:
-        if mealNumber == 1 and (protein['protein'] / protein['lipid'] < 2.4 or lipid['protein'] / lipid['lipid'] < 2.4):
-            highFatMeal = totalCaloriesFirstMeal * 0.17
-            totalGramsFromLipidSource = highFatMeal / lipidKcalPerGram
-            while totalLipidGrams < totalGramsFromLipidSource:
-                proteinResult += lipidProteinPerGram
-                totalKcal += lipidKcalPerGram
-                carboResult += lipidCarboPerGram
-                lipidResult += lipidPerGram
-                totalLipidGrams += 1
-        while proteinResult < totalProtein:
+    while (totalKcal < totalCaloriesInMeal):
+
+        while (proteinResult < totalProtein):
             proteinResult += proteinPerGram
             totalKcal += proteinKcalPerGram
             carboResult += proteinCarboPerGram
             lipidResult += proteinLipidPerGram
             totalProteinGrams += 1
-        if lipidResult < totalLipid:
+
+        if (lipidResult < totalLipid):
             proteinResult += lipidProteinPerGram
             totalKcal += lipidKcalPerGram
             carboResult += lipidCarboPerGram
             lipidResult += lipidPerGram
             totalLipidGrams += 1
-        if totalKcal >= totalCaloriesInMeal:
-            while proteinResult < totalProtein or lipidResult > totalLipid:
+
+        if ((totalKcal >= totalCaloriesInMeal)):
+
+            while ((proteinResult < totalProtein) and (lipidResult > totalLipid)):
+
                 proteinResult -= lipidProteinPerGram
                 totalKcal -= lipidKcalPerGram
                 carboResult -= lipidCarboPerGram
@@ -133,8 +105,8 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
                 lipidResult += proteinLipidPerGram
                 totalProteinGrams += 1
 
-        if proteinResult > (totalProtein + (totalProtein * 0.03)):
-            while proteinResult > (totalProtein + (totalProtein * 0.03)):
+        if (proteinResult > (totalProtein + (totalProtein * 0.03))):
+            while (proteinResult > (totalProtein + (totalProtein * 0.03))):
                 proteinResult -= proteinPerGram
                 totalKcal -= proteinKcalPerGram
                 carboResult -= proteinCarboPerGram
@@ -146,7 +118,6 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
         carboResult += carboPerGram
         lipidResult += carboLipidPerGram
         totalCarboGrams += 1
-
     mealResult = {
         'totalKcal': totalKcal,
         'proteinSource': totalProteinGrams,
@@ -160,7 +131,6 @@ def calculateMeal(foodList, totalProtein, totalLipid, totalCaloriesInMeal):
         'totalLipidInMeal': lipidResult,
         'totalCarboInMeal': carboResult
     }
-    mealNumber += 1
     return mealResult
 
 
@@ -252,6 +222,22 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
         totalProteinInMeal = macros['totalProtein']
         totalLipidInMeal = macros['totalLipid']
         totalCaloriesInMeal = bmr
+        totalProteinFirstMeal = totalProteinInMeal * 0.2
+        totalLipidFirstMeal = totalLipidInMeal * 0.2
+        totalCaloriesFirstMeal = totalCaloriesInMeal * 0.2
+
+        totalProteinSecondMeal = totalProteinInMeal * 0.3
+        totalLipidSecondMeal = totalLipidInMeal * 0.3
+        totalCaloriesInSecondMeal = totalCaloriesInMeal * 0.3
+
+        totalProteinThirdMeal = totalProteinInMeal * 0.2
+        totalLipidThirdMeal = totalLipidInMeal * 0.2
+        totalCaloriesInThirdMeal = totalCaloriesInMeal * 0.2
+
+        totalProteinInFourthMeal = 0
+        totalLipidInFourthMeal = 0
+        totalCaloriesInFourthMeal = 0
+
         fullDiet = calculateDietFourMeals(i)
         totalPtnCalculated = fullDiet['totalMacrosInDiet']['totalProteinInDiet']
         isBigger = totalPtnCalculated > (totalProteinInMeal +
