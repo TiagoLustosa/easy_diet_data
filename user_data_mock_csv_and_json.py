@@ -3,8 +3,8 @@ import random
 import numpy as np
 import csv
 
-ages = list(range(18, 75))  # possible ages from 18 to 60
-weights = list(range(45, 140))  # possible weights from 50 to 100 kg
+ages = list(range(18, 75))  # possible ages from 18 to 75
+weights = list(range(45, 140))  # possible weights from 45 to 140 kg
 heights = list(range(150, 210))  # possible heights in cm
 protein_per_kg = [1.6, 1.7, 1.8, 1.9, 2.0,  2.1, 2.2, 2.3]
 activity_levels = ['sedentary', 'lightlyActive', 'moderatelyActive',
@@ -22,12 +22,15 @@ def load_food_lists():
 
 def generate_user_data():
     mock_user_data = []
-    with open('C:/projects/easy_diet_data/data_files/user_data_mock_CSV2.csv', mode='w', newline='') as output_file:
+    with open('C:/projects/easy_diet_data/data_files/user_data_mock_CSV11.csv', mode='w', newline='') as output_file:
         writer = csv.writer(output_file)
         writer.writerow(['totalProteinIdealInAllMeals',
                          'proteinSourceFirstMealFirstFoodProteinCoeficient',
                          'proteinSourceFirstMealSecondFoodProteinCoeficient',
                          'proteinSourceFirstMealThirdFoodProteinCoeficient',
+                         'proteinSourceFirstMealFirstFoodLipidCoeficient',
+                         'proteinSourceFirstMealSecondFoodLipidCoeficient',
+                         'proteinSourceFirstMealThirdFoodLipidCoeficient',
                          'proteinSourceFirstMealFirstFoodKcalCoeficient',
                          'proteinSourceFirstMealSecondFoodKcalCoeficient',
                          'proteinSourceFirstMealThirdFoodKcalCoeficient',
@@ -35,6 +38,9 @@ def generate_user_data():
                          'proteinSourceSecondMealFirstFoodProteinCoeficient',
                          'proteinSourceSecondMealSecondFoodProteinCoeficient',
                          'proteinSourceSecondMealThirdFoodProteinCoeficient',
+                         'proteinSourceSecondMealFirstFoodLipidCoeficient',
+                         'proteinSourceSecondMealSecondFoodLipidCoeficient',
+                         'proteinSourceSecondMealThirdFoodLipidCoeficient',
                          'proteinSourceSecondMealFirstFoodKcalCoeficient',
                          'proteinSourceSecondMealSecondFoodKcalCoeficient',
                          'proteinSourceSecondMealThirdFoodKcalCoeficient',
@@ -42,6 +48,9 @@ def generate_user_data():
                          'proteinSourceThirdMealFirstFoodProteinCoeficient',
                          'proteinSourceThirdMealSecondFoodProteinCoeficient',
                          'proteinSourceThirdMealThirdFoodProteinCoeficient',
+                         'proteinSourceThirdMealFirstFoodLipidCoeficient',
+                         'proteinSourceThirdMealSecondFoodLipidCoeficient',
+                         'proteinSourceThirdMealThirdFoodLipidCoeficient',
                          'proteinSourceThirdMealFirstFoodKcalCoeficient',
                          'proteinSourceThirdMealSecondFoodKcalCoeficient',
                          'proteinSourceThirdMealThirdFoodKcalCoeficient',
@@ -49,6 +58,9 @@ def generate_user_data():
                          'proteinSourceFourthMealFirstFoodProteinCoeficient',
                          'proteinSourceFourthMealSecondFoodProteinCoeficient',
                          'proteinSourceFourthMealThirdFoodProteinCoeficient',
+                         'proteinSourceFourthMealFirstFoodLipidCoeficient',
+                         'proteinSourceFourthMealSecondFoodLipidCoeficient',
+                         'proteinSourceFourthMealThirdFoodLipidCoeficient',
                          'proteinSourceFourthMealFirstFoodKcalCoeficient',
                          'proteinSourceFourthMealSecondFoodKcalCoeficient',
                          'proteinSourceFourthMealThirdFoodKcalCoeficient',
@@ -103,6 +115,10 @@ def generate_user_data():
             proteinSourceFirstMealSecondFoodProteinCoeficient = first_meal_food_list[1]['protein']
             proteinSourceFirstMealThirdFoodProteinCoeficient = first_meal_food_list[2]['protein']
 
+            proteinSourceFirstMealFirstFoodLipidCoeficient = first_meal_food_list[0]['lipid']
+            proteinSourceFirstMealSecondFoodLipidCoeficient = first_meal_food_list[1]['lipid']
+            proteinSourceFirstMealThirdFoodLipidCoeficient = first_meal_food_list[2]['lipid']
+
             proteinSourceFirstMealFirstFoodKcalCoeficient = first_meal_food_list[0]['energyInKcal']
             proteinSourceFirstMealSecondFoodKcalCoeficient = first_meal_food_list[1]['energyInKcal']
             proteinSourceFirstMealThirdFoodKcalCoeficient = first_meal_food_list[2]['energyInKcal']
@@ -111,6 +127,10 @@ def generate_user_data():
             proteinSourceSecondMealSecondFoodProteinCoeficient = second_meal_food_list[1]['protein']
             proteinSourceSecondMealThirdFoodProteinCoeficient = second_meal_food_list[2]['protein']
 
+            proteinSourceSecondMealFirstFoodLipidCoeficient = second_meal_food_list[0]['lipid']
+            proteinSourceSecondMealSecondFoodLipidCoeficient = second_meal_food_list[1]['lipid']
+            proteinSourceSecondMealThirdFoodLipidCoeficient = second_meal_food_list[2]['lipid']
+
             proteinSourceSecondMealFirstFoodKcalCoeficient = second_meal_food_list[0]['energyInKcal']
             proteinSourceSecondMealSecondFoodKcalCoeficient = second_meal_food_list[1]['energyInKcal']
             proteinSourceSecondMealThirdFoodKcalCoeficient = second_meal_food_list[2]['energyInKcal']
@@ -118,6 +138,11 @@ def generate_user_data():
             proteinSourceThirdMealFirstFoodProteinCoeficient = third_meal_food_list[0]['protein']
             proteinSourceThirdMealSecondFoodProteinCoeficient = third_meal_food_list[1]['protein']
             proteinSourceThirdMealThirdFoodProteinCoeficient = third_meal_food_list[2]['protein']
+
+            proteinSourceThirdMealFirstFoodLipidCoeficient = third_meal_food_list[0]['lipid']
+            proteinSourceThirdMealSecondFoodLipidCoeficient = third_meal_food_list[1]['lipid']
+            proteinSourceThirdMealThirdFoodLipidCoeficient = third_meal_food_list[2]['lipid']
+
             proteinSourceThirdMealFirstFoodKcalCoeficient = third_meal_food_list[0]['energyInKcal']
             proteinSourceThirdMealSecondFoodKcalCoeficient = third_meal_food_list[1]['energyInKcal']
             proteinSourceThirdMealThirdFoodKcalCoeficient = third_meal_food_list[2]['energyInKcal']
@@ -125,6 +150,11 @@ def generate_user_data():
             proteinSourceFourthMealFirstFoodProteinCoeficient = fourth_meal_food_list[0]['protein']
             proteinSourceFourthMealSecondFoodProteinCoeficient = fourth_meal_food_list[1]['protein']
             proteinSourceFourthMealThirdFoodProteinCoeficient = fourth_meal_food_list[2]['protein']
+
+            proteinSourceFourthMealFirstFoodLipidCoeficient = fourth_meal_food_list[0]['lipid']
+            proteinSourceFourthMealSecondFoodLipidCoeficient = fourth_meal_food_list[1]['lipid']
+            proteinSourceFourthMealThirdFoodLipidCoeficient = fourth_meal_food_list[2]['lipid']
+
             proteinSourceFourthMealFirstFoodKcalCoeficient = fourth_meal_food_list[0]['energyInKcal']
             proteinSourceFourthMealSecondFoodKcalCoeficient = fourth_meal_food_list[1]['energyInKcal']
             proteinSourceFourthMealThirdFoodKcalCoeficient = fourth_meal_food_list[2]['energyInKcal']
@@ -133,6 +163,9 @@ def generate_user_data():
                              proteinSourceFirstMealFirstFoodProteinCoeficient,
                              proteinSourceFirstMealSecondFoodProteinCoeficient,
                              proteinSourceFirstMealThirdFoodProteinCoeficient,
+                             proteinSourceFirstMealFirstFoodLipidCoeficient,
+                             proteinSourceFirstMealSecondFoodLipidCoeficient,
+                             proteinSourceFirstMealThirdFoodLipidCoeficient,
                              proteinSourceFirstMealFirstFoodKcalCoeficient,
                              proteinSourceFirstMealSecondFoodKcalCoeficient,
                              proteinSourceFirstMealThirdFoodKcalCoeficient,
@@ -140,6 +173,9 @@ def generate_user_data():
                              proteinSourceSecondMealFirstFoodProteinCoeficient,
                              proteinSourceSecondMealSecondFoodProteinCoeficient,
                              proteinSourceSecondMealThirdFoodProteinCoeficient,
+                             proteinSourceSecondMealFirstFoodLipidCoeficient,
+                             proteinSourceSecondMealSecondFoodLipidCoeficient,
+                             proteinSourceSecondMealThirdFoodLipidCoeficient,
                              proteinSourceSecondMealFirstFoodKcalCoeficient,
                              proteinSourceSecondMealSecondFoodKcalCoeficient,
                              proteinSourceSecondMealThirdFoodKcalCoeficient,
@@ -147,6 +183,9 @@ def generate_user_data():
                              proteinSourceThirdMealFirstFoodProteinCoeficient,
                              proteinSourceThirdMealSecondFoodProteinCoeficient,
                              proteinSourceThirdMealThirdFoodProteinCoeficient,
+                             proteinSourceThirdMealFirstFoodLipidCoeficient,
+                             proteinSourceThirdMealSecondFoodLipidCoeficient,
+                             proteinSourceThirdMealThirdFoodLipidCoeficient,
                              proteinSourceThirdMealFirstFoodKcalCoeficient,
                              proteinSourceThirdMealSecondFoodKcalCoeficient,
                              proteinSourceThirdMealThirdFoodKcalCoeficient,
@@ -154,6 +193,9 @@ def generate_user_data():
                              proteinSourceFourthMealFirstFoodProteinCoeficient,
                              proteinSourceFourthMealSecondFoodProteinCoeficient,
                              proteinSourceFourthMealThirdFoodProteinCoeficient,
+                             proteinSourceFourthMealFirstFoodLipidCoeficient,
+                             proteinSourceFourthMealSecondFoodLipidCoeficient,
+                             proteinSourceFourthMealThirdFoodLipidCoeficient,
                              proteinSourceFourthMealFirstFoodKcalCoeficient,
                              proteinSourceFourthMealSecondFoodKcalCoeficient,
                              proteinSourceFourthMealThirdFoodKcalCoeficient,
@@ -172,7 +214,7 @@ def generate_user_data():
                 "thirdMealFoodList": third_meal_food_list,
                 "fourthMealFoodList": fourth_meal_food_list,
             })
-            with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression2.json', 'w', encoding='utf-8') as output_file:
+            with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression11.json', 'w', encoding='utf-8') as output_file:
                 json.dump(mock_user_data, output_file, ensure_ascii=False)
             print('Dados criados = ', i)
 

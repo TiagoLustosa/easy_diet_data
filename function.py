@@ -173,10 +173,10 @@ def calculateDietFourMeals(userData):
     return fullDiet
 
 
-with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression.json', 'r', encoding="utf8") as input_file:
+with open('C:/projects/easy_diet_data/data_files/new_data_mock_to_regression10.json', 'r', encoding="utf8") as input_file:
     userDataJson = json.load(input_file)
 
-with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w', newline='') as output_file:
+with open('C:/projects/easy_diet_data/data_files/user_data_result10.csv', mode='w', newline='') as output_file:
     writer = csv.writer(output_file)
     writer.writerow(
         ['totalProteinIdealValue',
@@ -250,7 +250,7 @@ with open('C:/projects/easy_diet_data/data_files/user_data_result.csv', mode='w'
         totalProteinIsOk = (isBigger == False and isLower == False)
         if (totalProteinIsOk):
             userData.append(fullDiet)
-            with open('user_data__result_with_csv.json', 'w', encoding='utf-8') as output_file:
+            with open('user_data__result_with_csv10.json', 'w', encoding='utf-8') as output_file:
                 json.dump(userData, output_file, ensure_ascii=False)
                 # resultado para alimentar a IA
                 writer.writerow([

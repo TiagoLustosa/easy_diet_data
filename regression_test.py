@@ -4,11 +4,64 @@ from sklearn.linear_model import LinearRegression
 
 df = pd.read_csv(
     'C:/projects/easy_diet_data/data_files/user_data_mock_CSV.csv')
+df2 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV2.csv')
+df3 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV3.csv')
+df4 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV4.csv')
+df5 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV5.csv')
+df6 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV6.csv')
+df7 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV7.csv')
+df8 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV8.csv')
+df9 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV9.csv')
+df10 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV10.csv')
+
 
 dfResult = pd.read_csv(
     'C:/projects/easy_diet_data/data_files/user_data_result.csv')
 
-df_input = pd.concat([df, dfResult[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
+dfResult2 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result2.csv')
+
+dfResult3 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result3.csv')
+
+dfResult4 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result4.csv')
+
+dfResult5 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result5.csv')
+
+dfResult6 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result6.csv')
+
+dfResult7 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result7.csv')
+
+dfResult8 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result8.csv')
+
+dfResult9 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result9.csv')
+
+dfResult10 = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result10.csv')
+
+
+dfAllFiles = pd.concat([df, df2, df3, df4, df5, df6, df7, df8, df9, df10])
+
+dfResultAllFiles = pd.concat([dfResult, dfResult2, dfResult3, dfResult4, dfResult5, dfResult6, dfResult7, dfResult8, dfResult9, dfResult10])
+
+print(len(dfAllFiles), len(dfResultAllFiles))
+
+df_input = pd.concat([dfAllFiles, dfResultAllFiles[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
 
 X = df_input[['totalProteinIdealInAllMeals',
               'totalLipidIdealValue',
@@ -42,7 +95,7 @@ X = df_input[['totalProteinIdealInAllMeals',
               'proteinSourceFourthMealThirdFoodKcalCoeficient',
               ]]
 
-y = dfResult[[
+y = dfResultAllFiles[[
     'firstMealProteinFoodTotalGrams',
     'firstMealLipidFoodTotalGrams',
     'firstMealCarboFoodTotalGrams',
