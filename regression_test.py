@@ -2,6 +2,12 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 
+dfTESTE = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_mock_CSV11.csv')
+
+dfResultTESTE = pd.read_csv(
+    'C:/projects/easy_diet_data/data_files/user_data_result11.csv')
+
 df = pd.read_csv(
     'C:/projects/easy_diet_data/data_files/user_data_mock_CSV.csv')
 df2 = pd.read_csv(
@@ -61,14 +67,95 @@ dfResultAllFiles = pd.concat([dfResult, dfResult2, dfResult3, dfResult4, dfResul
 
 print(len(dfAllFiles), len(dfResultAllFiles))
 
-df_input = pd.concat([dfAllFiles, dfResultAllFiles[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
+# df_input = pd.concat([dfAllFiles, dfResultAllFiles[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
+df_input = pd.concat([dfTESTE, dfResultTESTE[['totalCaloriesIdealValue', 'totalLipidIdealValue']]], axis=1)
 
+df_input[['proteinSourceFirstMealFirstFoodProteinCoeficient',
+          'proteinSourceFirstMealSecondFoodProteinCoeficient',
+          'proteinSourceFirstMealThirdFoodProteinCoeficient',
+          'proteinSourceFirstMealFirstFoodLipidCoeficient',
+          'proteinSourceFirstMealSecondFoodLipidCoeficient',
+          'proteinSourceFirstMealThirdFoodLipidCoeficient',
+          'proteinSourceFirstMealFirstFoodKcalCoeficient',
+          'proteinSourceFirstMealSecondFoodKcalCoeficient',
+          'proteinSourceFirstMealThirdFoodKcalCoeficient',
+
+          'proteinSourceSecondMealFirstFoodProteinCoeficient',
+          'proteinSourceSecondMealSecondFoodProteinCoeficient',
+          'proteinSourceSecondMealThirdFoodProteinCoeficient',
+          'proteinSourceSecondMealFirstFoodLipidCoeficient',
+          'proteinSourceSecondMealSecondFoodLipidCoeficient',
+          'proteinSourceSecondMealThirdFoodLipidCoeficient',
+          'proteinSourceSecondMealFirstFoodKcalCoeficient',
+          'proteinSourceSecondMealSecondFoodKcalCoeficient',
+          'proteinSourceSecondMealThirdFoodKcalCoeficient',
+
+          'proteinSourceThirdMealFirstFoodProteinCoeficient',
+          'proteinSourceThirdMealSecondFoodProteinCoeficient',
+          'proteinSourceThirdMealThirdFoodProteinCoeficient',
+          'proteinSourceThirdMealFirstFoodLipidCoeficient',
+          'proteinSourceThirdMealSecondFoodLipidCoeficient',
+          'proteinSourceThirdMealThirdFoodLipidCoeficient',
+          'proteinSourceThirdMealFirstFoodKcalCoeficient',
+          'proteinSourceThirdMealSecondFoodKcalCoeficient',
+          'proteinSourceThirdMealThirdFoodKcalCoeficient',
+
+          'proteinSourceFourthMealFirstFoodProteinCoeficient',
+          'proteinSourceFourthMealSecondFoodProteinCoeficient',
+          'proteinSourceFourthMealThirdFoodProteinCoeficient',
+          'proteinSourceFourthMealFirstFoodLipidCoeficient',
+          'proteinSourceFourthMealSecondFoodLipidCoeficient',
+          'proteinSourceFourthMealThirdFoodLipidCoeficient',
+          'proteinSourceFourthMealFirstFoodKcalCoeficient',
+          'proteinSourceFourthMealSecondFoodKcalCoeficient',
+          'proteinSourceFourthMealThirdFoodKcalCoeficient']] = df_input[['proteinSourceFirstMealFirstFoodProteinCoeficient',
+                                                                         'proteinSourceFirstMealSecondFoodProteinCoeficient',
+                                                                         'proteinSourceFirstMealThirdFoodProteinCoeficient',
+                                                                         'proteinSourceFirstMealFirstFoodLipidCoeficient',
+                                                                         'proteinSourceFirstMealSecondFoodLipidCoeficient',
+                                                                         'proteinSourceFirstMealThirdFoodLipidCoeficient',
+                                                                         'proteinSourceFirstMealFirstFoodKcalCoeficient',
+                                                                         'proteinSourceFirstMealSecondFoodKcalCoeficient',
+                                                                         'proteinSourceFirstMealThirdFoodKcalCoeficient',
+
+                                                                         'proteinSourceSecondMealFirstFoodProteinCoeficient',
+                                                                         'proteinSourceSecondMealSecondFoodProteinCoeficient',
+                                                                         'proteinSourceSecondMealThirdFoodProteinCoeficient',
+                                                                         'proteinSourceSecondMealFirstFoodLipidCoeficient',
+                                                                         'proteinSourceSecondMealSecondFoodLipidCoeficient',
+                                                                         'proteinSourceSecondMealThirdFoodLipidCoeficient',
+                                                                         'proteinSourceSecondMealFirstFoodKcalCoeficient',
+                                                                         'proteinSourceSecondMealSecondFoodKcalCoeficient',
+                                                                         'proteinSourceSecondMealThirdFoodKcalCoeficient',
+
+                                                                         'proteinSourceThirdMealFirstFoodProteinCoeficient',
+                                                                         'proteinSourceThirdMealSecondFoodProteinCoeficient',
+                                                                         'proteinSourceThirdMealThirdFoodProteinCoeficient',
+                                                                         'proteinSourceThirdMealFirstFoodLipidCoeficient',
+                                                                         'proteinSourceThirdMealSecondFoodLipidCoeficient',
+                                                                         'proteinSourceThirdMealThirdFoodLipidCoeficient',
+                                                                         'proteinSourceThirdMealFirstFoodKcalCoeficient',
+                                                                         'proteinSourceThirdMealSecondFoodKcalCoeficient',
+                                                                         'proteinSourceThirdMealThirdFoodKcalCoeficient',
+
+                                                                         'proteinSourceFourthMealFirstFoodProteinCoeficient',
+                                                                         'proteinSourceFourthMealSecondFoodProteinCoeficient',
+                                                                         'proteinSourceFourthMealThirdFoodProteinCoeficient',
+                                                                         'proteinSourceFourthMealFirstFoodLipidCoeficient',
+                                                                         'proteinSourceFourthMealSecondFoodLipidCoeficient',
+                                                                         'proteinSourceFourthMealThirdFoodLipidCoeficient',
+                                                                         'proteinSourceFourthMealFirstFoodKcalCoeficient',
+                                                                         'proteinSourceFourthMealSecondFoodKcalCoeficient',
+                                                                         'proteinSourceFourthMealThirdFoodKcalCoeficient']] / 100
 X = df_input[['totalProteinIdealInAllMeals',
               'totalLipidIdealValue',
               'totalCaloriesIdealValue',
               'proteinSourceFirstMealFirstFoodProteinCoeficient',
               'proteinSourceFirstMealSecondFoodProteinCoeficient',
               'proteinSourceFirstMealThirdFoodProteinCoeficient',
+              'proteinSourceFirstMealFirstFoodLipidCoeficient',
+              'proteinSourceFirstMealSecondFoodLipidCoeficient',
+              'proteinSourceFirstMealThirdFoodLipidCoeficient',
               'proteinSourceFirstMealFirstFoodKcalCoeficient',
               'proteinSourceFirstMealSecondFoodKcalCoeficient',
               'proteinSourceFirstMealThirdFoodKcalCoeficient',
@@ -76,6 +163,9 @@ X = df_input[['totalProteinIdealInAllMeals',
               'proteinSourceSecondMealFirstFoodProteinCoeficient',
               'proteinSourceSecondMealSecondFoodProteinCoeficient',
               'proteinSourceSecondMealThirdFoodProteinCoeficient',
+              'proteinSourceSecondMealFirstFoodLipidCoeficient',
+              'proteinSourceSecondMealSecondFoodLipidCoeficient',
+              'proteinSourceSecondMealThirdFoodLipidCoeficient',
               'proteinSourceSecondMealFirstFoodKcalCoeficient',
               'proteinSourceSecondMealSecondFoodKcalCoeficient',
               'proteinSourceSecondMealThirdFoodKcalCoeficient',
@@ -83,6 +173,9 @@ X = df_input[['totalProteinIdealInAllMeals',
               'proteinSourceThirdMealFirstFoodProteinCoeficient',
               'proteinSourceThirdMealSecondFoodProteinCoeficient',
               'proteinSourceThirdMealThirdFoodProteinCoeficient',
+              'proteinSourceThirdMealFirstFoodLipidCoeficient',
+              'proteinSourceThirdMealSecondFoodLipidCoeficient',
+              'proteinSourceThirdMealThirdFoodLipidCoeficient',
               'proteinSourceThirdMealFirstFoodKcalCoeficient',
               'proteinSourceThirdMealSecondFoodKcalCoeficient',
               'proteinSourceThirdMealThirdFoodKcalCoeficient',
@@ -90,12 +183,15 @@ X = df_input[['totalProteinIdealInAllMeals',
               'proteinSourceFourthMealFirstFoodProteinCoeficient',
               'proteinSourceFourthMealSecondFoodProteinCoeficient',
               'proteinSourceFourthMealThirdFoodProteinCoeficient',
+              'proteinSourceFourthMealFirstFoodLipidCoeficient',
+              'proteinSourceFourthMealSecondFoodLipidCoeficient',
+              'proteinSourceFourthMealThirdFoodLipidCoeficient',
               'proteinSourceFourthMealFirstFoodKcalCoeficient',
               'proteinSourceFourthMealSecondFoodKcalCoeficient',
               'proteinSourceFourthMealThirdFoodKcalCoeficient',
               ]]
 
-y = dfResultAllFiles[[
+y = dfResultTESTE[[
     'firstMealProteinFoodTotalGrams',
     'firstMealLipidFoodTotalGrams',
     'firstMealCarboFoodTotalGrams',
@@ -185,5 +281,5 @@ for i in range(len(predict)):
     }
     new_df_result = pd.DataFrame(fullResult)
     dfFullResult = pd.concat([dfFullResult, new_df_result], ignore_index=True)
-    dfFullResult.to_csv('full_result_predict.csv', index=False)
+    dfFullResult.to_csv('full_result_predictTESTE.csv', index=False)
     print('Dados preditos = ', i)
